@@ -33,6 +33,7 @@ end
 gem 'simple_form'
 gem 'devise'
 gem 'foundation-rails'
+gem 'carrierwave'
 
 group :test, :development do
   gem 'rspec-rails'
