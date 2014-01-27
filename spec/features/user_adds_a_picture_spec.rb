@@ -13,7 +13,7 @@ feature "User creates a learning", %q{
 
   scenario "happy path" do
     visit new_piece_path
-    attach_file 'Picture', Rails.root.join('spec/file_fixtures/valid_piece_image.png')
+    attach_file 'Picture', Rails.root.join('spec/file_fixtures/valid_piece_image.jpg')
     click_button 'Add'
     expect(page).to have_content('successfully')
     expect(Piece.last.url).to be_present

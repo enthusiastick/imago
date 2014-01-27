@@ -1,0 +1,5 @@
+<%= simple_form_for(@piece) do |f| %>
+  <%= f.label :img, "Picture" %>
+  <%= f.file_field :img %>
+  <%= f.submit 'Add' %>
+<% end %>
