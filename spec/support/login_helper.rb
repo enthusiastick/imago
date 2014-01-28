@@ -6,6 +6,6 @@ module LoginHelper
     click_on 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'sign_in_session'
+    click_on 'Sign in'
   end
 end

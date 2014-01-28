@@ -16,6 +16,10 @@ class PiecesController < ApplicationController
     @piece = Piece.new
   end
 
+  def show
+    @piece = Piece.find(params[:id])
+  end
+
   protected
 
   def piece_params
