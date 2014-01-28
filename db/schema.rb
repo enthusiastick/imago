@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20140127014726) do
   enable_extension "plpgsql"
 
   create_table "pieces", force: true do |t|
-    t.string   "img"
-    t.integer  "user_id"
+    t.string   "title",       null: false
+    t.text     "description"
+    t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
