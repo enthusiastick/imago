@@ -1,2 +1,9 @@
 <h1><%= @piece.title %></h1>
 <p><%= @piece.description %></p>
+<ul class="small-block-grid-3">
+  <% @piece.images.each do |image| %>
+    <li>
+      <img src="<%= image.img.url%>">
+    </li>
+  <% end %>
+</ul>
