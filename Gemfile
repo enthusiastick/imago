@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'fog', '~> 1.3.1'
 
 group :test, :development do
   gem 'rspec-rails'
