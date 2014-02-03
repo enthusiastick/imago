@@ -17,6 +17,7 @@ feature "User adds a picture", %q{
     attach_file 'Picture', Rails.root.join('spec/file_fixtures/valid_piece_image.jpg')
     click_button 'Add'
     expect(page).to have_content('successfully')
+    expect(Image.last.img.url).to be_present
   end
 
   # context "with valid input" do
