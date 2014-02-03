@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
 
-  mount_uploader :url, ImageUploader
+  mount_uploader :img, ImageUploader
 
   belongs_to :piece
 
