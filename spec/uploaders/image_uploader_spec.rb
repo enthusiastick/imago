@@ -2,11 +2,11 @@ require 'spec_helper'
 # Use Carrierwave's provided test matchers
 require 'carrierwave/test/matchers'
 
-describe PieceUploader do
+describe ImageUploader do
   include CarrierWave::Test::Matchers
 
   let(:uploader) do
-    PieceUploader.new(FactoryGirl.build(:piece))
+    ImageUploader.new(FactoryGirl.build(:image))
   end
 
   let(:path) do
@@ -14,11 +14,11 @@ describe PieceUploader do
   end
 
   before do
-    PieceUploader.enable_processing = true
+    ImageUploader.enable_processing = true
   end
 
   after do
-    PieceUploader.enable_processing = false
+    ImageUploader.enable_processing = false
   end
 
   it 'stores without error' do

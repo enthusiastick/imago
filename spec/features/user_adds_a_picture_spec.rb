@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User creates a learning", %q{
+feature "User adds a picture", %q{
   As an authenticated user
   I want to add a picture
   So that I can save and share it
@@ -12,11 +12,11 @@ feature "User creates a learning", %q{
   # * If I fail to specify a valid file, I am presented with an error
 
   scenario "happy path" do
-    visit new_piece_path
+    piece = FactoryGirl.create(:piece)
+    visit new_piece_image_path(piece)
     attach_file 'Picture', Rails.root.join('spec/file_fixtures/valid_piece_image.jpg')
     click_button 'Add'
     expect(page).to have_content('successfully')
-    expect(Piece.last.url).to be_present
   end
 
   # context "with valid input" do

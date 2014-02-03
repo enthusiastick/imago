@@ -7,6 +7,12 @@ FactoryGirl.define do
   end
 
   factory :piece do
+    title 'foobarbaz'
+    user
+  end
+
+  factory :image do
+    piece
   end
 
 end
