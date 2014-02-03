@@ -1,6 +1,9 @@
-<%= simple_form_for [@piece, @image] do |f| %>
-  <%= f.label :img, "Picture" %>
-  <%= f.file_field :img %>
-  <%= f.input :caption %>
-  <%= f.submit 'Add' %>
-<% end %>
+<div class="small-4 small-centered columns">
+  <h1>New Image</h1>
+  <%= simple_form_for [@piece, @image] do |f| %>
+    <%= f.label :img, "Picture" %>
+    <%= f.file_field :img %>
+    <%= f.input :caption %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

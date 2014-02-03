@@ -1,0 +1,5 @@
+<div class="small-12 columns">
+  <h2><%= link_to @image.piece.title, piece_path(@image.piece) %></h2>
+  <%= image_tag(@image.img.url) %>
+  <p><%= @image.caption %></p>
+</div>

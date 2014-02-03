@@ -1,9 +1,14 @@
-<h1><%= @piece.title %></h1>
-<p><%= @piece.description %></p>
-<ul class="small-block-grid-3">
-  <% @piece.images.each do |image| %>
-    <li>
-      <img src="<%= image.img.url%>">
-    </li>
+<div class="Small-12 columns">
+  <h1><%= @piece.title %></h1>
+  <p><%= @piece.description %></p>
+  <% if current_user == @piece.user %>
+    <%= button_to 'Add Image', new_piece_image_path(@piece), method: :get, class: 'button small round' %>
   <% end %>
-</ul>
+  <ul class="small-block-grid-3">
+    <% @piece.images.each do |image| %>
+      <li>
+        <%= link_to image_tag(image.img.url, alt: image.caption), piece_image_path(@piece, image) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
