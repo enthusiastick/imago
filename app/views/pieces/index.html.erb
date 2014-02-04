@@ -1,0 +1,10 @@
+<div class="small-12 columns">
+  <h2>Pieces</h1>
+  <ul class="inline-list">
+    <% @pieces.each do |piece| %>
+      <li>
+        <%= button_to piece.title, piece_path(piece), method: :get, class: "button round" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -12,6 +12,10 @@ class PiecesController < ApplicationController
     end
   end
 
+  def index
+    @pieces = Piece.all
+  end
+
   def new
     @piece = Piece.new
   end
