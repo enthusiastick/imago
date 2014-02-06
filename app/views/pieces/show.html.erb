@@ -8,19 +8,21 @@
         <thead>
           <tr>
             <th width="150">Image</th>
+            <th width="125">Delete</th>
             <th width="150">Weight</th>
             <th>Caption</th>
+            <th width="125">Update</th>
           </tr>
         </thead>
         <tbody>
           <% @piece.sorted_images.each do |image| %>
             <tr>
               <td><%= image_tag(image.img.url, class: 'th') %></td>
+               <td><%= button_to 'Delete', piece_image_path(@piece, image), class: 'button small round', action: "destroy", method: :delete, data: { confirm: "Are you sure?" } %></td>
               <%= simple_form_for [@piece, image] do |f| %>
                 <td><%= f.input :weight %></td>
                 <td><%= f.input :caption %></td>
                 <td width="100"><%= f.button :submit, 'Update', class: 'button small round' %></td>
-                <td width="100"><%= button_to 'Delete', piece_image_path(@piece, image), class: 'button small round', action: "destroy", method: :delete, data: { confirm: "Are you sure?" } %></td>
               <% end %>
             <% end %>
           </tr>
