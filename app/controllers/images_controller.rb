@@ -7,9 +7,19 @@ class ImagesController < ApplicationController
       flash[:notice] = "Image uploaded successfully."
       redirect_to piece_path(@image.piece)
     else
-      flash[:error] = "Error! Haven't you learned anything?"
+      flash[:error] = "Error! Unable to upload image."
       render :new
     end
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    if @image.destroy
+      flash[:success] = "Image deleted."
+    else
+      flash[:error] = "Error! Unable to delete image."
+    end
+    redirect_to piece_path(@image.piece)
   end
 
   def new

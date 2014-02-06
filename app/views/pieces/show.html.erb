@@ -3,27 +3,30 @@
   <p><%= @piece.description %></p>
   <% if current_user == @piece.user %>
     <%= button_to 'Add Image', new_piece_image_path(@piece), method: :get, class: 'button small round' %>
-    <table>
-      <thead>
-        <tr>
-          <th width="150">Image</th>
-          <th width="150">Weight</th>
-          <th>Caption</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @piece.sorted_images.each do |image| %>
+    <% unless @piece.sorted_images.empty? %>
+      <table>
+        <thead>
           <tr>
-            <td><%= image_tag(image.img.url, class: 'th') %></td>
-            <%= simple_form_for [@piece, image] do |f| %>
-              <td><%= f.input :weight %></td>
-              <td><%= f.input :caption %></td>
-              <td width="150"><%= f.button :submit, class: 'button small round' %></td>
+            <th width="150">Image</th>
+            <th width="150">Weight</th>
+            <th>Caption</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @piece.sorted_images.each do |image| %>
+            <tr>
+              <td><%= image_tag(image.img.url, class: 'th') %></td>
+              <%= simple_form_for [@piece, image] do |f| %>
+                <td><%= f.input :weight %></td>
+                <td><%= f.input :caption %></td>
+                <td width="100"><%= f.button :submit, 'Update', class: 'button small round' %></td>
+                <td width="100"><%= button_to 'Delete', piece_image_path(@piece, image), class: 'button small round', action: "destroy", method: :delete, data: { confirm: "Are you sure?" } %></td>
+              <% end %>
             <% end %>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
   <% else %>
   <ul class="small-block-grid-3">
     <% @piece.sorted_images.each do |image| %>
