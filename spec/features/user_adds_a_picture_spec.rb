@@ -15,7 +15,7 @@ feature "User adds a picture", %q{
     piece = FactoryGirl.create(:piece)
     visit new_piece_image_path(piece)
     attach_file 'Picture', Rails.root.join('spec/file_fixtures/valid_piece_image.jpg')
-    click_button 'Add'
+    click_button 'Create'
     expect(page).to have_content('successfully')
     expect(Image.last.img.url).to be_present
   end
