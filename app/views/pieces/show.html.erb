@@ -14,7 +14,7 @@
       <tbody>
         <% @piece.sorted_images.each do |image| %>
           <td><%= image_tag(image.img.url, class: 'th') %></td>
-          <%= simple_form_for(image) do |f| %>
+          <%= simple_form_for [@piece, image] do |f| %>
             <td><%= f.input :weight %></td>
             <td><%= f.input :caption %></td>
             <td width="150"><%= f.button :submit, class: 'button small round' %></td>
