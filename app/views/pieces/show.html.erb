@@ -30,12 +30,15 @@
       </table>
     <% end %>
   <% else %>
-  <ul class="small-block-grid-3">
-    <% @piece.sorted_images.each do |image| %>
-      <li>
-        <%= link_to image_tag(image.img.url, alt: image.caption), piece_image_path(@piece, image), class: 'th' %>
-      </li>
-    <% end %>
-  </ul>
+    <ul data-orbit>
+      <% @piece.sorted_images.each do |image| %>
+        <li>
+          <%= image_tag(image.img.url) %>
+          <div class="orbit-caption">
+            <%= image.caption %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 </div>
