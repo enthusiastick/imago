@@ -30,13 +30,10 @@
       </table>
     <% end %>
   <% else %>
-    <ul data-orbit>
+    <ul class="clearing-thumbs" data-clearing>
       <% @piece.sorted_images.each do |image| %>
         <li>
-          <%= image_tag(image.img.url) %>
-          <div class="orbit-caption">
-            <%= image.caption %>
-          </div>
+          <%= link_to image_tag(image.img.url, alt: image.caption), piece_image_path(image.piece, image), class: 'th' %>
         </li>
       <% end %>
     </ul>

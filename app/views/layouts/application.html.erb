@@ -28,9 +28,10 @@
           <li class="divider"></li>
           <li>
             <% if user_signed_in? %>
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+              <%= button_to 'Sign Out', destroy_user_session_path, class: "button round", method: :delete %>
             <% end %>
           </li>
+          <li class="divider"></li>
         </ul>
         <ul class="left">
           <li class="divider"></li>
